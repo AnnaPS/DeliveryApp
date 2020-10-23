@@ -33,11 +33,14 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              backgroundColor: DeliveryColors.white,
+              backgroundColor: Theme.of(context).canvasColor,
               radius: 50,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Image.asset('assets/img/fast-food.png'),
+                child: Image.asset(
+                  'assets/img/fast-food.png',
+                  color: Theme.of(context).accentColor,
+                ),
               ),
             ),
             SizedBox(
