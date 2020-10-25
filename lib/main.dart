@@ -55,38 +55,38 @@ class MyApp extends StatelessWidget {
     );
 
     final darkTheme = ThemeData(
-        appBarTheme: AppBarTheme(
-            color: DeliveryColors.purple,
-            textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-                headline6: TextStyle(
-                    fontSize: 20,
-                    color: DeliveryColors.white,
-                    fontWeight: FontWeight.bold))),
-        bottomAppBarColor: Colors.transparent,
-        canvasColor: DeliveryColors.grey,
-        accentColor: DeliveryColors.white,
-        scaffoldBackgroundColor: DeliveryColors.dark,
-        textTheme: GoogleFonts.poppinsTextTheme().apply(
-            bodyColor: DeliveryColors.white,
-            displayColor: DeliveryColors.white),
-        inputDecorationTheme: InputDecorationTheme(
-          labelStyle: TextStyle(color: DeliveryColors.green),
-          contentPadding: EdgeInsets.zero,
-          border: _borderDark,
-          enabledBorder: _borderDark,
-          focusedBorder: _borderDark,
-          filled: true,
-          fillColor: DeliveryColors.grey,
-          hintStyle:
-              GoogleFonts.poppins(color: DeliveryColors.white, fontSize: 12),
-        ),
-        iconTheme: IconThemeData(color: DeliveryColors.white),
-        accentIconTheme: IconThemeData(color: DeliveryColors.white),
-        primaryIconTheme: IconThemeData(color: DeliveryColors.white));
+      appBarTheme: AppBarTheme(
+          color: DeliveryColors.purple,
+          textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+              headline6: TextStyle(
+                  fontSize: 20,
+                  color: DeliveryColors.white,
+                  fontWeight: FontWeight.bold))),
+      bottomAppBarColor: Colors.transparent,
+      canvasColor: DeliveryColors.grey,
+      accentColor: DeliveryColors.white,
+      scaffoldBackgroundColor: DeliveryColors.dark,
+      textTheme: GoogleFonts.poppinsTextTheme().apply(
+          bodyColor: DeliveryColors.green, displayColor: DeliveryColors.white),
+      inputDecorationTheme: InputDecorationTheme(
+        labelStyle: TextStyle(color: DeliveryColors.green),
+        contentPadding: EdgeInsets.zero,
+        border: _borderDark,
+        enabledBorder: _borderDark,
+        focusedBorder: _borderDark,
+        filled: true,
+        fillColor: DeliveryColors.grey,
+        hintStyle:
+            GoogleFonts.poppins(color: DeliveryColors.white, fontSize: 12),
+      ),
+      iconTheme: IconThemeData(color: DeliveryColors.white),
+      accentIconTheme: IconThemeData(color: DeliveryColors.white),
+      primaryIconTheme: IconThemeData(color: DeliveryColors.white),
+    );
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: lightTheme,
+      theme: darkTheme,
       home: SplashScreen(),
     );
   }

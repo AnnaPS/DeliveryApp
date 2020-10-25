@@ -40,6 +40,8 @@ class _ItemProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Card(
+        color: Theme.of(context).canvasColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         elevation: 8,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -72,7 +74,10 @@ class _ItemProduct extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('${product.price} €'),
+                    Text('${product.price} €',
+                        style: TextStyle(
+                            color: Theme.of(context).accentColor,
+                            fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
