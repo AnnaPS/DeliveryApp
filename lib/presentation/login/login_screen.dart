@@ -1,14 +1,14 @@
 import 'package:deliveryApp/presentation/theme.dart';
+import 'package:deliveryApp/presentation/widgets/delivery_button.dart';
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
+import '../home/home_screen.dart';
 
 const logoSize = 45.0;
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     final withd = MediaQuery.of(context).size.width;
     final moreSize = 50.0;
     final labelColor = Theme.of(context).inputDecorationTheme.labelStyle.color;
@@ -42,14 +42,17 @@ class LoginScreen extends StatelessWidget {
                     ),
                     Align(
                       alignment: Alignment.bottomCenter,
-                      child: CircleAvatar(
-                        backgroundColor: Theme.of(context).canvasColor,
-                        radius: logoSize,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Image.asset(
-                            'assets/img/fast-food.png',
-                            color: Theme.of(context).accentColor,
+                      child: Hero(
+                        tag: 'deliveryIcon',
+                        child: CircleAvatar(
+                          backgroundColor: Theme.of(context).canvasColor,
+                          radius: logoSize,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Image.asset(
+                              'assets/img/fast-food.png',
+                              color: Theme.of(context).accentColor,
+                            ),
                           ),
                         ),
                       ),
@@ -114,34 +117,14 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(25),
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (_) => HomeScreen()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(
-                    colors: deliveryGradient,
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
-          ),
+              padding: const EdgeInsets.all(25),
+              child: DeliveryButton(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (_) => HomeScreen()));
+                },
+                text: 'Login',
+              )),
         ],
       ),
     );

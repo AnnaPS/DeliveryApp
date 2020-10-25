@@ -1,4 +1,4 @@
-import 'package:deliveryApp/presentation/splashscreen.dart';
+import 'package:deliveryApp/presentation/splash/splashscreen.dart';
 import 'package:deliveryApp/presentation/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,8 +28,13 @@ class MyApp extends StatelessWidget {
 
     final lightTheme = ThemeData(
       appBarTheme: AppBarTheme(
-        color: DeliveryColors.white,
-      ),
+          color: DeliveryColors.white,
+          textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+              headline6: TextStyle(
+                  fontSize: 20,
+                  color: DeliveryColors.purple,
+                  fontWeight: FontWeight.bold))),
+      bottomAppBarColor: DeliveryColors.veryLightGrey,
       canvasColor: DeliveryColors.white,
       accentColor: DeliveryColors.purple,
       textTheme: GoogleFonts.poppinsTextTheme().apply(
@@ -51,8 +56,13 @@ class MyApp extends StatelessWidget {
 
     final darkTheme = ThemeData(
         appBarTheme: AppBarTheme(
-          color: DeliveryColors.purple,
-        ),
+            color: DeliveryColors.purple,
+            textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+                headline6: TextStyle(
+                    fontSize: 20,
+                    color: DeliveryColors.white,
+                    fontWeight: FontWeight.bold))),
+        bottomAppBarColor: Colors.transparent,
         canvasColor: DeliveryColors.grey,
         accentColor: DeliveryColors.white,
         scaffoldBackgroundColor: DeliveryColors.dark,
@@ -76,7 +86,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: darkTheme,
+      theme: lightTheme,
       home: SplashScreen(),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:deliveryApp/presentation/login_screen.dart';
+import 'package:deliveryApp/presentation/login/login_screen.dart';
 import 'package:deliveryApp/presentation/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -32,14 +32,17 @@ class _SplashScreenState extends State<SplashScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-              backgroundColor: Theme.of(context).canvasColor,
-              radius: 50,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Image.asset(
-                  'assets/img/fast-food.png',
-                  color: Theme.of(context).accentColor,
+            Hero(
+              tag: 'deliveryIcon',
+              child: CircleAvatar(
+                backgroundColor: Theme.of(context).canvasColor,
+                radius: 50,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Image.asset(
+                    'assets/img/fast-food.png',
+                    color: Theme.of(context).accentColor,
+                  ),
                 ),
               ),
             ),
