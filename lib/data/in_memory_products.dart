@@ -1,4 +1,4 @@
-import 'package:deliveryApp/data/productsEntity.dart';
+import 'package:deliveryApp/domain/model/productsEntity.dart';
 
 final products = [
   Product(

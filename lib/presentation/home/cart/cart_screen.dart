@@ -1,5 +1,5 @@
 import 'package:deliveryApp/data/in_memory_products.dart';
-import 'package:deliveryApp/data/productsEntity.dart';
+import 'package:deliveryApp/domain/model/productsEntity.dart';
 import 'package:deliveryApp/presentation/widgets/delivery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -111,14 +111,14 @@ class _ShoppingCartProduct extends StatelessWidget {
               color: Theme.of(context).canvasColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              elevation: 4,
+              elevation: 3,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
-                        flex: 4,
+                        flex: 1,
                         child: CircleAvatar(
                           child: ClipOval(
                               child: Padding(
@@ -131,7 +131,7 @@ class _ShoppingCartProduct extends StatelessWidget {
                           backgroundColor: Colors.black,
                         )),
                     Expanded(
-                      flex: 3,
+                      flex: 1,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
