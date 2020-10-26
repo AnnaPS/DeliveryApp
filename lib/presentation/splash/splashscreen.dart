@@ -9,16 +9,15 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState() {
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => LoginScreen()));
-    });
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await Future.delayed(const Duration(seconds: 3));
+      Navigator.of(context).pushReplacement(PageRouteBuilder(
+          transitionDuration: Duration(seconds: 1),
+          pageBuilder: (_, __, ___) => LoginScreen()));
+      //navegar
+    });
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(

@@ -1,6 +1,9 @@
 import 'package:deliveryApp/presentation/home/products/products_screen.dart';
+import 'package:deliveryApp/presentation/profile/profile_screen.dart';
 import 'package:deliveryApp/presentation/theme.dart';
 import 'package:flutter/material.dart';
+
+import 'cart/cart_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -21,7 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: IndexedStack(
               index: _currentIndext,
-              children: [ProductScreen()],
+              children: [
+                ProductScreen(),
+                Text(''),
+                CartScreen(
+                  callback: () {
+                    setState(() {
+                      _currentIndext = 0;
+                    });
+                  },
+                ),
+                Text(''),
+                ProfileScreen()
+              ],
             ),
           ),
           _DeliveryNavigationBar(
