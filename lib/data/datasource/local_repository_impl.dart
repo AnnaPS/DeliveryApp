@@ -8,7 +8,7 @@ const _pref_email = 'EMAIL';
 const _pref_theme = 'THEME';
 const _pref_image = 'IMAGE';
 
-class LocalRepository extends LocalRepositoryInterface {
+class LocalRepositoryImpl extends LocalRepositoryInterface {
   @override
   Future<void> clearAllData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -48,5 +48,17 @@ class LocalRepository extends LocalRepositoryInterface {
     sharedPreferences.setString(_pref_theme, user.theme);
     sharedPreferences.setString(_pref_email, user.email);
     return user;
+  }
+
+  @override
+  Future<bool> isDarkMode() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getBool(_pref_theme);
+  }
+
+  @override
+  Future<void> saveDarkMode(bool darkMode) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool(_pref_theme, darkMode);
   }
 }

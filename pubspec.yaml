@@ -25,7 +25,7 @@ dependencies:
     sdk: flutter
 
   google_fonts: any
-  get: ^3.10.2
+  get: ^3.15.0
   shared_preferences: ^0.5.10
   lottie: ^0.7.0+1
 

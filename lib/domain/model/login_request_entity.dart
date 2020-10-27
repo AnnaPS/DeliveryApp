@@ -1,6 +1,6 @@
 class LoginRequestEntity {
-  const LoginRequestEntity({this.email, this.password});
+  const LoginRequestEntity({this.userName, this.password});
 
-  final String email;
+  final String userName;
   final String password;
 }

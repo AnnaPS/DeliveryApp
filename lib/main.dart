@@ -1,6 +1,8 @@
-import 'package:deliveryApp/presentation/splash/splashscreen.dart';
+import 'package:deliveryApp/presentation/main_binding.dart';
+import 'package:deliveryApp/presentation/routes/delivery_navigation.dart';
 import 'package:deliveryApp/presentation/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,10 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
-      home: SplashScreen(),
+      initialRoute: DeliveryRoutes.splash,
+      getPages: DeliveryPages.pages,
+      initialBinding: MainBinding(),
     );
   }
 }

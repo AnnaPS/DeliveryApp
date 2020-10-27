@@ -1,3 +1,4 @@
+import 'package:deliveryApp/data/datasource/local_repository_impl.dart';
 import 'package:deliveryApp/presentation/theme.dart';
 import 'package:deliveryApp/presentation/widgets/delivery_button.dart';
 import 'package:flutter/material.dart';
@@ -146,7 +147,9 @@ class ProfileScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
                     child: DeliveryButton(
-                      onTap: () {},
+                      onTap: () {
+                        LocalRepositoryImpl().clearAllData();
+                      },
                       text: 'Log out',
                       padding: const EdgeInsets.symmetric(
                           horizontal: 40, vertical: 4),
