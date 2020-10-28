@@ -1,20 +1,12 @@
+import 'package:deliveryApp/presentation/home/home_controller.dart';
 import 'package:deliveryApp/presentation/home/products/products_screen.dart';
 import 'package:deliveryApp/presentation/profile/profile_screen.dart';
 import 'package:deliveryApp/presentation/theme.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import 'cart/cart_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key key}) : super(key: key);
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndext = 0;
-
+class HomeScreen extends GetWidget<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,30 +14,30 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: IndexedStack(
-              index: _currentIndext,
-              children: [
-                ProductScreen(),
-                Text(''),
-                CartScreen(
-                  callback: () {
-                    setState(() {
-                      _currentIndext = 0;
-                    });
-                  },
-                ),
-                Text(''),
-                ProfileScreen()
-              ],
+            child: Obx(
+              () => IndexedStack(
+                index: controller.indexSelected.value,
+                children: [
+                  ProductScreen(),
+                  Placeholder(),
+                  CartScreen(
+                    callback: () {
+                      controller.updateIndexSelected(0);
+                    },
+                  ),
+                  Placeholder(),
+                  ProfileScreen()
+                ],
+              ),
             ),
           ),
-          _DeliveryNavigationBar(
-            index: _currentIndext,
-            onIndexSelected: (index) {
-              setState(() {
-                _currentIndext = index;
-              });
-            },
+          Obx(
+            () => _DeliveryNavigationBar(
+              index: controller.indexSelected.value,
+              onIndexSelected: (index) {
+                controller.updateIndexSelected(index);
+              },
+            ),
           )
         ],
       ),
@@ -53,10 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class _DeliveryNavigationBar extends StatelessWidget {
+class _DeliveryNavigationBar extends GetWidget<HomeController> {
   final int index;
   final ValueChanged<int> onIndexSelected;
-  const _DeliveryNavigationBar({Key key, this.index, this.onIndexSelected})
+  _DeliveryNavigationBar({Key key, this.index, this.onIndexSelected})
       : super(key: key);
 
   @override
@@ -127,9 +119,17 @@ class _DeliveryNavigationBar extends StatelessWidget {
                 Material(
                   child: InkWell(
                     onTap: () => onIndexSelected(4),
-                    child: CircleAvatar(
-                      radius: 12.5,
-                      backgroundColor: Colors.deepPurple,
+                    child: Obx(
+                      () {
+                        final user = controller.user.value;
+                        return user.image == null
+                            ? const SizedBox.shrink()
+                            : CircleAvatar(
+                                radius: 12.5,
+                                backgroundImage: AssetImage(user.image),
+                                backgroundColor: Colors.black,
+                              );
+                      },
                     ),
                   ),
                 )

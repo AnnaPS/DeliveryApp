@@ -1,9 +1,9 @@
 import 'package:deliveryApp/domain/model/userEntity.dart';
 import 'package:deliveryApp/domain/model/login_request_entity.dart';
 import 'package:deliveryApp/domain/repository/login_api_repository.dart';
-import 'package:deliveryApp/domain/request/login_response.dart';
+import 'package:deliveryApp/domain/response/login_response.dart';
 
-class ApiRepositoryImpl extends ApiRepositoryInterface {
+class LoginApiRepositoryImpl extends LoginApiRepositoryInterface {
   @override
   Future<User> getUserFromToken(String token) async {
     await Future.delayed(const Duration(seconds: 3));
@@ -46,7 +46,7 @@ class ApiRepositoryImpl extends ApiRepositoryInterface {
   }
 
   @override
-  Future<void> logout(String token) {
+  Future<void> logout(String token) async {
     print('removing token from server');
   }
 }

@@ -8,7 +8,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 
 class SplashController extends GetxController {
   final LocalRepositoryInterface localRepositoryInterface;
-  final ApiRepositoryInterface apiRepositoryInterface;
+  final LoginApiRepositoryInterface apiRepositoryInterface;
 
   SplashController(this.localRepositoryInterface, this.apiRepositoryInterface);
 

@@ -8,4 +8,7 @@ class User {
   final String email;
   final String theme;
   final String image;
+
+  factory User.empty() =>
+      User(name: null, email: null, image: null, theme: null);
 }

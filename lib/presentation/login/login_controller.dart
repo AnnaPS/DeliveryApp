@@ -1,4 +1,4 @@
-import 'package:deliveryApp/data/datasource/login_api_repository_impl.dart';
+import 'package:deliveryApp/domain/exception/AuthException.dart';
 import 'package:deliveryApp/domain/model/login_request_entity.dart';
 import 'package:deliveryApp/domain/repository/login_api_repository.dart';
 import 'package:deliveryApp/domain/repository/local_storage_repository.dart';
@@ -9,7 +9,7 @@ enum LoginState { LOADING, INITIAL }
 
 class LoginController extends GetxController {
   final LocalRepositoryInterface localRepositoryInterface;
-  final ApiRepositoryInterface apiRepositoryInterface;
+  final LoginApiRepositoryInterface apiRepositoryInterface;
 
   LoginController(this.localRepositoryInterface, this.apiRepositoryInterface);
 
